@@ -30,8 +30,7 @@ This project is in progress.
 ## Screenshoots
 ![screenshot](./src/Assets/firstscreen.png)
 ## Live Demo()
-[Live Demo Link](https://unruffled-payne-458b03.netlify.app/)
-[Live Demo Link](https://math-magians.herokuapp.com/)
+[Live Demo Link](https://bookstore-muwo1.herokuapp.com/)
 ## Authors
 
 👤 **Author1**
