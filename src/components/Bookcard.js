@@ -1,26 +1,32 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getBooks, removeBook } from '../redux/books/books';
 
-export default function bookcard() {
+function Bookcard() {
   const bookStore = useSelector((state) => state.booksReducer);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!bookStore.length) {
+      dispatch(getBooks());
+    }
+  }, []);
 
   const handleRemove = (id) => {
     dispatch(removeBook(id));
   };
-
   return (
     <div>
       {
-          bookStore.map(({ id, author, title }) => (
-            <div key={id} className="card-container">
+          bookStore.map(({ itemId, author, title }) => (
+            <div key={itemId} className="card-container">
               <p className="book-category">Science Fiction</p>
               <h3>{title}</h3>
               <p>{author}</p>
               <p>Comments</p>
               <span />
-              <button type="button" onClick={() => handleRemove(id)}>Delete</button>
+              <button type="button" onClick={() => handleRemove(itemId)}>Delete</button>
+
               <span />
               <p>Edit</p>
               <span />
@@ -39,3 +45,5 @@ export default function bookcard() {
     </div>
   );
 }
+
+export default Bookcard;

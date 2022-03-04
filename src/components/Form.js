@@ -19,9 +19,9 @@ function Form() {
 
   const submitBookToStore = () => {
     const newBook = {
-      id: uuidv4(),
+      itemId: uuidv4(),
       title,
-      author,
+      category: author,
     };
     dispatch(addBook(newBook));
   };
