@@ -1,30 +1,55 @@
-import React from 'react';
-// import useDispatch hook
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-// import your Action Creators
-import {addBook, removeBook} from './redux/books/books';
+import { addBook } from '../redux/books/books';
 
-const dispatch = useDispatch();
+function Form() {
+  const dispatch = useDispatch();
 
-const submitBookToStore = () => {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleAuthorChange = (e) => {
+    setAuthor(e.target.value);
+  };
+
+  const submitBookToStore = () => {
     const newBook = {
-        id, // make sure it's unique
-        title,
-        author
-    }
-
-    // dispatch an action and pass it the newBook object (your action's payload)
+      id: uuidv4(),
+      title,
+      author,
+    };
     dispatch(addBook(newBook));
-}
+  };
 
-<button onClick={submitBookToStore}>Add Book</button>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.target.children[1].children[0].value = null;
+    e.target.children[1].children[1].value = null;
+    setTitle('');
+    setAuthor('');
+  };
 
-export default function form() {
   return (
-    <form>
-      <input className="book-title" type="text" placeholder="Book Title" />
-      <input type="text" placeholder="Category" />
-      <button type="submit">ADD BOOK</button>
-    </form>
+    <>
+      <form action="#" onSubmit={handleSubmit}>
+        <h2>ADD NEW BOOK</h2>
+        <input type="text" placeholder="Book Title .." onChange={(e) => handleTitleChange(e)} />
+        <input className="book-input" placeholder="Author" onChange={(e) => handleAuthorChange(e)} />
+        <select id="books" name="books">
+          <option value="Fiction">Fiction</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Romance">Romance</option>
+        </select>
+      </form>
+      <button type="button" onClick={(e) => submitBookToStore(e)}>ADD BOOK</button>
+    </>
   );
 }
+
+export default Form;
