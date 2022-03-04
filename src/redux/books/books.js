@@ -1,3 +1,5 @@
+import book from "../../components/Book";
+
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const GET_BOOK = 'bookstore/books/GET_BOOK';
@@ -9,8 +11,11 @@ const handleData = (data) => {
     keys.forEach((key, index) => {
         const book = data[keys[index]];
         book[0].item_id = key;
-    })
-}
+    });
+    return book;
+};
+
+// Actions creators
 
 export const addBook = (book) => async (dispatch) => {
     type: ADD_BOOK,
@@ -25,7 +30,8 @@ export const removeBook = (bookId) => async (dispatch) =>{
         throw new Error(error.message);
     }
 
-}
+};
+
 // REDUCER
 const reducer =  (state = [], action) => {
 switch (action.type) {
