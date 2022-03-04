@@ -15,17 +15,18 @@ function Bookcard() {
   const handleRemove = (id) => {
     dispatch(removeBook(id));
   };
+  
   return (
     <div>
       {
-          bookStore.map(({ itemId, author, title }) => (
-            <div key={itemId} className="card-container">
-              <p className="book-category">Science Fiction</p>
+          bookStore.map(({ item_id, author, category, title }) => (
+            <div key={item_id} className="card-container">
+              <p className="book-category">{category}</p>
               <h3>{title}</h3>
               <p>{author}</p>
               <p>Comments</p>
               <span />
-              <button type="button" onClick={() => handleRemove(itemId)}>Delete</button>
+              <button type="button" onClick={() => handleRemove(item_id)}>Delete</button>
 
               <span />
               <p>Edit</p>
