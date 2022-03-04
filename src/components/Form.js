@@ -5,7 +5,7 @@ import { addBook } from '../redux/books/books';
 
 function Form() {
   const dispatch = useDispatch();
-  
+
   const [category, setCategory] = useState('fiction');
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -18,17 +18,17 @@ function Form() {
     setAuthor(e.target.value);
   };
 
-  const handleValueChange =(e) => {
-    setCategory(e.target.value)
-  }
+  const handleValueChange = (e) => {
+    setCategory(e.target.value);
+  };
 
   const submitBookToStore = () => {
     const newBook = {
-      item_id: uuidv4(),
+      itemId: uuidv4(),
       title,
       category,
-       author,
-      
+      author,
+
     };
     dispatch(addBook(newBook));
   };
@@ -41,7 +41,7 @@ function Form() {
 
     setTitle('');
     setAuthor('');
-    setCategory('fiction')
+    setCategory('fiction');
   };
 
   return (
@@ -50,9 +50,11 @@ function Form() {
         <h2>ADD NEW BOOK</h2>
         <input type="text" placeholder="Book Title .." onChange={(e) => handleTitleChange(e)} />
         <input className="book-input" placeholder="Author" onChange={(e) => handleAuthorChange(e)} />
-        <select id="books" name="option"
-         onChange={(e) => handleValueChange(e)}
-         value={category}
+        <select
+          id="books"
+          name="option"
+          onChange={(e) => handleValueChange(e)}
+          value={category}
         >
           <option value="Fiction">Fiction</option>
           <option value="Action">Action</option>

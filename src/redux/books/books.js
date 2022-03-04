@@ -11,7 +11,7 @@ const handleData = (data) => {
 
   keys.forEach((key, index) => {
     const book = data[keys[index]];
-    book[0].item_id = key;
+    book[0].itemId = key;
 
     books.push(book[0]);
   });
@@ -59,7 +59,7 @@ const reducer = (state = [], action) => {
     case GET_BOOKS:
       return action.payload;
     case REMOVE_BOOK:
-      return state.filter((book) => book.item_id !== action.payload);
+      return state.filter((book) => book.itemId !== action.payload);
     default:
       return state;
   }
