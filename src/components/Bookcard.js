@@ -22,25 +22,35 @@ function Bookcard() {
 
   return (
     <div>
-      {bookStore.map(({
-        itemId, category, title,
-      }) => (
+      {bookStore.map(({ itemId, category, title }) => (
         <li key={itemId} className="book-container d-flex">
           <div className="general-info d-flex">
             <span className="genre">{}</span>
             <h3 className="title">{title}</h3>
             <span className="author">{category}</span>
             <ul className="book-management d-flex">
-              <li><button type="button">Comments</button></li>
+              <li>
+                <button type="button">Comments</button>
+              </li>
+              <span className="vertical-line"> | </span>
               <li>
                 {' '}
-                <button type="button" onClick={() => handleRemove(itemId)}>Delete</button>
+                <button type="button" onClick={() => handleRemove(itemId)}>
+                  Delete
+                </button>
               </li>
-              <li><button type="button">Edit</button></li>
+              <span className="vertical-line"> | </span>
+              <li>
+                <button type="button">Edit</button>
+              </li>
             </ul>
           </div>
           <div className="completion-detail d-flex">
-            <img className="progress-bar" src={progressBar} alt="progress-bar" />
+            <img
+              className="progress-bar"
+              src={progressBar}
+              alt="progress-bar"
+            />
             <div className="completion-text d-flex">
               <span className="completion">
                 {percentage}
@@ -49,13 +59,12 @@ function Bookcard() {
               <span className="completed-word">Completed</span>
             </div>
           </div>
+          <i className="bg-ling" />
           <div className="current-chapter d-flex">
             <span className="current-chapter-span">Current Chapter</span>
             <span className="current-chapter-value">
               Chapter
-              {' '}
               {}
-
             </span>
             <button type="button">Update Changes</button>
           </div>

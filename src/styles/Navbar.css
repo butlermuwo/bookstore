@@ -50,8 +50,14 @@
   text-decoration: none;
   color: #121212;
   opacity: 0.5;
+  font-weight: bold;
+}
+
+.links:focus {
+  color: #0290ff;
 }
 
 .activelinks {
   opacity: 100%;
+  font-weight: bold;
 }
