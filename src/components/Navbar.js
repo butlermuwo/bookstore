@@ -1,32 +1,41 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../styles/Navbar.css';
+import userImg from '../Assets/user.svg';
 
-export default function Navbar() {
-  const links = [
-    {
-      id: 1,
-      path: '/',
-      text: 'Book',
-    },
-    {
-      id: 2,
-      path: '/categories',
-      text: 'Categories',
-    },
-  ];
-
+function Navbar() {
   return (
-    <header>
-      <h1 className="title">Bookstore CMS</h1>
-      <nav className="na">
-        <ul className="nav-links">
-          {links.map((link) => (
-            <li key={link.id}>
-              <NavLink to={link.path}>{link.text}</NavLink>
-            </li>
-          ))}
+    <nav className="navbar">
+      <div className="left-side">
+        <h2 className="website-logo-name">Bookstore CMS</h2>
+        <ul>
+          <li>
+            <Link
+              className="links"
+              activeClassName="activelinks"
+              key="1"
+              to="/"
+            >
+              Books
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="links"
+              activeClassName="activelinks"
+              key="2"
+              to="/categories"
+            >
+              Categories
+            </Link>
+          </li>
         </ul>
-      </nav>
-    </header>
+      </div>
+      <div className="right-side">
+        <img src={userImg} alt="user-img" />
+      </div>
+    </nav>
   );
 }
+
+export default Navbar;
