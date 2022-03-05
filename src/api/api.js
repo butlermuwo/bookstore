@@ -31,7 +31,7 @@ const deleteData = async (url, id) => {
       method: 'DELETE',
       body: JSON.stringify(
         {
-          item_id: id,
+          itemId: id,
         },
       ),
       mode: 'cors',
