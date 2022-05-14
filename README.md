@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
-# Math Magicians
+# Bookstore
 
 > This is a bookstore app created with React and Redux.
 ## Built With
@@ -28,9 +28,9 @@ cd math-magians in the terminal.
 This project is in progress.
 
 ## Screenshoots
-![screenshot](./src/Assets/firstscreen.png)
+![screenshot](./src/Assets/secondscreen.png)
 ## Live Demo()
-[Live Demo Link](https://bookstore-muwo1.herokuapp.com/)
+[Live Demo Link](https://bookstore-muwo3.herokuapp.com/)
 ## Authors
 
 👤 **Author1**
